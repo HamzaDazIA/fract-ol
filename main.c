@@ -1,35 +1,15 @@
-#include <stdio.h>
+#include "fractol.h"
 
-typedef struct d_complex
+
+int main(int argc, char **argv)
 {
-    double  real;
+    t_data  data;
 
-    double  i;
-}       t_complex;
+    if (!idef_mlx(&data))
+    {
+        write(2, "I have a Error with  initializing MiniLibX \n", 46);
+        return(1);
+    }
 
-int main()
-{
-    t_complex   z;
-    t_complex   c;
-    double  tmp_z;
-
-
-    c.i = 1.5;
-    c.real = -0.5;
-
-    int i = 0;
-
-while (i < 52) {
-    tmp_z = (z.real * z.real) - (z.i * z.i); // Real part of z²
-    z.i = 2 * z.real * z.i;                  // Imaginary part of z²
-    z.real = tmp_z;                           // Update z to z²
-
-    z.real += c.real; // Add c's real part: z = z² + c
-    z.i += c.i;       // Add c's imaginary part
-
-    printf("Iteration %d: z = %f + %fi\n", i, z.real, z.i);
-    i++;
-}
-    return 0;
-
+    
 }
