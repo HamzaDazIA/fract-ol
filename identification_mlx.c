@@ -18,7 +18,7 @@ int idef_mlx(t_data *data)
     if ( data->mlx_conaction == NULL)
         return (0);
     data->win_mlx = mlx_new_window(data->mlx_conaction, WIDTH, HEIGHT, "fract'ol");
-    if  (data->win_mlx)
+    if  (!data->win_mlx)
         return (0);
     data->img = mlx_new_image(data->mlx_conaction, WIDTH, HEIGHT);
     if (data->img == NULL)
