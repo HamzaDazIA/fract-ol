@@ -24,6 +24,21 @@ typedef struct s_data {
     t_complex   offset;
 } t_data;
 
+int get_color(int iter, int max_iter)
+{
+    if (iter == max_iter)
+        return 0x000000; // Return black if inside the set
+
+    double t = (double)iter / max_iter; // Normalize iteration count (0 to 1)
+
+    int r = (int)(255 * t);     // Red increases from 0 to 255
+    int g = (int)(255 * (1 - t)); // Green decreases from 255 to 0
+    int b = (int)(255 * t * (1 - t) * 4); // Blue follows a smooth curve
+
+    return (r << 16) | (g << 8) | b; // Combine RGB into a hex color
+}
+
+
 // Convert screen coordinates to complex plane
 t_complex pixel_to_complex(int x, int y, t_data *data)
 {
@@ -68,7 +83,7 @@ void draw_fractal(t_data *data)
         {
             t_complex c = pixel_to_complex(x, y, data);
             int iter = mandelbrot(c);
-            int color = iter == MAX_ITER ? 0x000000 : (iter * 0x00FF00) / MAX_ITER;
+            int color = get_color(iter, MAX_ITER);
             
             // Write pixel to image buffer
             pixel = (int *)(data->addr + 
@@ -119,7 +134,7 @@ int main()
     
     // Initialize view parameters
     data.zoom = 0.5;
-    data.offset.real = 01.0;
+    data.offset.real = 0;
     data.offset.i = 0.0;
     
     // Draw initial fractal

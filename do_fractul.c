@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 20:06:19 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/21 13:46:00 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/02/22 04:01:18 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int mandelbrot(t_complex c)
     z.real = 0;
     z.i = 0;
 
-    while (z.real * z.real + z.i * z.i && i < MAX_ITER)
+    while (z.real * z.real + z.i * z.i && i < MAX_ITER) 
     {
         tmp = z.real * z.real - z.i * z.i + c.real;
         z.i = 2 * z.real * z.i + c.i;
@@ -41,32 +41,51 @@ int mandelbrot(t_complex c)
     return (i);
 }
 
-int get_color(int iter)
+unsigned int  get_color(int iter)
 {
-    if ()
+    unsigned int r;
+    unsigned int g;
+    unsigned int b;
+
+    double t = (iter / MAX_ITER);
+    
+    r = (unsigned int)(255 * t) ;
+    g = (unsigned int)(255 * (1 - t));
+    b = (unsigned int)(225 * t * (1 - t) * 4);
+
+    return (((r << 16) | (g << 8) ) | b );
 }
+
 void   draw_mandelbrot(t_data   *data)
 {
     int x;
     int y;
     t_complex c;
+    unsigned int color;
+    int iter;
+    unsigned int *pixel;
     
     y = 0;
-    while(y < HEIGHT)
+    while(y++ < HEIGHT)
     {
         x = 0;
-        while (x < WIDTH)
+        while (x++ < WIDTH)
         {
             c = pixel_to_complex(x, y, data);
-            
+            iter = mandelbrot(c);
+            color = get_color(iter);
+            pixel = (unsigned int *)(data->addr + (y * data->line_length) + (x * data->bits_per_pixel / 8));
+            *pixel = color;
         }
     }
+    mlx_put_image_to_window(data->mlx_con, data->mlx_win, data->img, 0, 0);
 }
+
 void    do_fractol(t_data *data)
 {
     
     if (data->fractol == Mandelbrot)
     {
-        
+        draw_mandelbrot(data);
     }
 }
