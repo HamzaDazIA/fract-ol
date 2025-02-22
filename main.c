@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:15:03 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/20 20:05:55 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/02/22 05:59:32 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main(int argc , char **argv)
 {
     t_data  data;
     
-    if ((HEIGHT <= 0 && HEIGHT > 2500) || (WIDTH <= 0 && WIDTH > 2500) )
+    if (HEIGHT <= 0 || HEIGHT > 2500 || WIDTH <= 0 || WIDTH > 2500)
         return (1);
     if (parsin(argc, argv, &data) == 0)
     {
@@ -39,6 +39,7 @@ int main(int argc , char **argv)
         write(2, "Error initializing MiniLibX\n", 28);
         return (1);
     }
+    do_fractol(&data);
     
     mlx_loop(data.mlx_con);
 }

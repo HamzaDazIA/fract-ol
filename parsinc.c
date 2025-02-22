@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:21:56 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/20 22:08:33 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/02/22 06:08:39 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,15 @@
 
 int parsin(int ac, char **av, t_data  *data)
 {
-    if((ft_strcmp(av[1], "Mandelbrot") == 0) && ac == 2 )
+    if (ac < 2)
+        return (0);
+    if (ft_strcmp(av[1], "mandelbrot") == 0 && ac == 2)
     {
-        //do Mandelbrot
-        (*data).fractol = Mandelbrot;
+        data->fractol = MANDELBROT;
+        data->zoom = 0.6;
+        data->offset.real = -0.5;
+        data->offset.imag = 0.0;
         return (1);
     }
-
-    data->zoom = 1.0;
-    data->offcet.i = 0;
-    data->offcet.real = 0;
-     
     return (0);
-    
 }

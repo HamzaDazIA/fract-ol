@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 18:30:24 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/20 18:58:10 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/02/22 05:38:18 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int     mlx_conialization(t_data *data)
         return (1);
     }
     data->addr = mlx_get_data_addr(data->img, &data->bits_per_pixel, &data->line_length, &data->endian); 
-    
     
     return (0);
 }

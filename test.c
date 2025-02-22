@@ -48,8 +48,6 @@ t_complex pixel_to_complex(int x, int y, t_data *data)
     c.real = (x * (N_MAX - N_MIN) / WIDTH + N_MIN) * data->zoom + data->offset.real;
     c.i = (y * (N_MAX - N_MIN) / HEIGHT + N_MIN) * data->zoom + data->offset.i;
     
-
-    
     return (c);
 }
 
