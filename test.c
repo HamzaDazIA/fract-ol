@@ -111,7 +111,7 @@ int mouse_hook(int button, int x, int y, t_data *data)
 // Key hook for exit
 int key_hook(int key, t_data *data)
 {
-    if (key == 65307) // ESC key
+    if (key == 53) // ESC key
     {
         mlx_destroy_window(data->mlx, data->win);
         return (0);
