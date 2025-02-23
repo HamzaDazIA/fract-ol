@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:15:03 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/23 03:45:58 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/02/23 06:12:24 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	print_usage(void)
 {
-	write(1, "\n\033[1;34mUsage:\n", 15);
-	write(1, "\033[1;34m./fractol <fractal_type>\n\n", 33);
-	write(1, "\033[1;32mAvailable fractals:\n\n", 28);
-	write(1, "\033[1;33m  🌀 mandelbrot\n", 25);
-	write(1, "\033[1;35m  🌊 julia <real> <imag>\n", 34);
-	write(1, "\033[1;36m  🔥 burning_ship\n\n", 28);
+	write(1, "\nUsage:\n", 10);
+	write(1, "fractol <fractal_type>\n\n", 25);
+	write(1, "Available fractals:\n\n", 23);
+	write(1, "🌀 mandelbrot\n", 17);
+	write(1, "🌊 julia <real> <imag>\n", 26);
+	write(1, "🔥 burning_ship\n\n", 20);
+    exit(1);
 }
-
 
 int main(int argc , char **argv)
 {
@@ -41,6 +41,7 @@ int main(int argc , char **argv)
     }
     do_fractol(&data);
     mlx_key_hook(data.mlx_win, key_events, &data);
+    mlx_hook(data.mlx_win, 17, 0, close_window, &data);
     mlx_mouse_hook(data.mlx_win, mouse_hook, &data);
     mlx_loop(data.mlx_con);
 }

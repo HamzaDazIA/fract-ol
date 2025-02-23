@@ -6,15 +6,15 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:15:21 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/23 04:15:52 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/02/23 06:12:04 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL
 #define FRACTOL
 
-#define WIDTH 800
-#define HEIGHT  800 
+#define WIDTH 1080
+#define HEIGHT  1080 
 
 #define MANDELBROT 1
 #define Julia    2
@@ -44,7 +44,6 @@ typedef struct	s_data {
 	int		line_length;
 	int		endian;
 	double	zoom;
-	t_complex	offset;
 	t_complex	julia_n;
 	
 }				t_data;
@@ -58,5 +57,5 @@ int key_events(int key, t_data *data);
 int mouse_hook(int button, int x,int y, t_data *data);
 t_complex pixel_to_complex(int x, int y, t_data *data);
 double ft_atof(char *str);
-
+int	close_window(t_data *data);
 #endif
