@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:15:03 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/23 06:12:24 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/02/24 11:13:51 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	print_usage(void)
 	write(1, "🌀 mandelbrot\n", 17);
 	write(1, "🌊 julia <real> <imag>\n", 26);
 	write(1, "🔥 burning_ship\n\n", 20);
-    exit(1);
+    exit(EXIT_FAILURE);
 }
 
 int main(int argc , char **argv)

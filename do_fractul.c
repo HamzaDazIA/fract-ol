@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 05:54:44 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/23 06:13:19 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/02/24 11:18:40 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,4 +115,6 @@ void do_fractol(t_data *data) {
         draw_mandelbrot(data);
     else if (data->fractol == Julia)
         draw_julia(data);
+    else if (data->fractol == MULTIBROT)
+        draw_multibrot(data);
 }

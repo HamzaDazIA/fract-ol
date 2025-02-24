@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:15:21 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/23 06:12:04 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/02/24 11:18:59 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 
 #define MANDELBROT 1
 #define Julia    2
+#define MULTIBROT	3
+
 #define N_MAX 2.0
 #define N_MIN -2.0
 #define MAX_ITER 100
@@ -58,4 +60,6 @@ int mouse_hook(int button, int x,int y, t_data *data);
 t_complex pixel_to_complex(int x, int y, t_data *data);
 double ft_atof(char *str);
 int	close_window(t_data *data);
+void    draw_multibrot(t_data  *data);
+
 #endif

@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:21:56 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/23 05:53:01 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/02/24 11:14:34 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,12 @@ int parsin(int ac, char **av, t_data  *data)
         data->julia_n.imag = ft_atof(av[3]);
         return (1);
     }
+    else if(ft_strcmp(av[1], "multibrot") == 0 && ac == 2)
+    {
+        data->fractol = MULTIBROT;
+        data->zoom = 1.0;
+        return (0);
+    }
+        
     return (0);
 }
