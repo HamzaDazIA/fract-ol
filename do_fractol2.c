@@ -6,14 +6,14 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 09:13:13 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/24 10:38:10 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/02/24 11:24:34 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
 
-int multibrot(t_complex c, t_data *data)
+int multibrot(t_complex c)
 {
     int i;
     double  tmp;
@@ -49,7 +49,7 @@ void    draw_multibrot(t_data  *data)
         while(++x < WIDTH)
         {
             c = pixel_to_complex(x, y, data);
-            iter = multibrot(c, data);
+            iter = multibrot(c);
             color = get_color(iter);
             pixel = (unsigned int *)(data->addr + 
                 (y * data->line_length) + (x * (data->bits_per_pixel / 8)));

@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:15:21 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/24 11:18:59 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/02/24 11:23:38 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,6 @@ t_complex pixel_to_complex(int x, int y, t_data *data);
 double ft_atof(char *str);
 int	close_window(t_data *data);
 void    draw_multibrot(t_data  *data);
+unsigned int get_color(int iter);
 
 #endif
