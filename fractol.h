@@ -6,15 +6,18 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:15:21 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/24 11:23:38 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/02/24 21:53:16 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL
 #define FRACTOL
-
+#ifndef WIDTH
 #define WIDTH 1080
+#endif
+#ifndef HEIGHT
 #define HEIGHT  1080 
+#endif
 
 #define MANDELBROT 1
 #define Julia    2
@@ -29,6 +32,7 @@
 #include <mlx.h>
 #include <stdio.h>
 #include <stdlib.h>
+# include <math.h>
 
 typedef struct s_complex {
 	double	real;
@@ -45,8 +49,11 @@ typedef struct	s_data {
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
+	t_complex	offset;
 	double	zoom;
 	t_complex	julia_n;
+	long    end_color;
+	long	start_color;
 	
 }				t_data;
 
@@ -56,11 +63,11 @@ int parsin(int ac, char **av, t_data  *data);
 int  mlx_conialization(t_data *data);
 void    do_fractol(t_data *data);
 int key_events(int key, t_data *data);
-int mouse_hook(int button, int x,int y, t_data *data);
+int	mouse_zoom(int button, int x, int y, t_data *data);
 t_complex pixel_to_complex(int x, int y, t_data *data);
 double ft_atof(char *str);
 int	close_window(t_data *data);
 void    draw_multibrot(t_data  *data);
-unsigned int get_color(int iter);
+unsigned int get_color(int iter, t_data *data);
 
 #endif

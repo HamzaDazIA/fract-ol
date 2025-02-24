@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:18:53 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/23 06:12:47 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/02/24 18:14:38 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ t_complex pixel_to_complex(int x, int y, t_data *data)
 {
     t_complex c;
     
-    c.real = (x * (N_MAX - N_MIN) / WIDTH + N_MIN) * data->zoom;
-    c.imag = (y * (N_MAX - N_MIN) / HEIGHT + N_MIN) * data->zoom ;
+    c.real = (x * (N_MAX - N_MIN) / WIDTH + N_MIN) * data->zoom + data->offset.real;
+    c.imag = (y * (N_MAX - N_MIN) / HEIGHT + N_MIN) * data->zoom  + data->offset.imag;
     
     return (c);
 }

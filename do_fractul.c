@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 05:54:44 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/24 11:18:40 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/02/24 21:56:26 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,13 @@ int mandelbrot(t_complex c)
     return i;
 }
 
-unsigned int get_color(int iter)
+unsigned int get_color(int i, t_data *data)
 {
-    unsigned int r;
-    unsigned int g;
-    unsigned int b;
-    
-    if (iter == MAX_ITER)
+    int    result;
+    if (i == MAX_ITER)
         return (0x000000);
-        
-    double t = (double)iter / MAX_ITER;  
-    
-    r = (unsigned int)(225 * t);
-    g = (unsigned int)(225 * (1 - t));
-    b = (unsigned int)(255 * t * (1 - t) * 4); 
-
-    return (((r << 16) | (g << 8)) | b);
+    result = ((i * (data->end_color - data->start_color)) / MAX_ITER) + data->start_color;
+    return (result);
 }
 
 int julia(t_complex z0, t_complex c_julia) 
@@ -75,7 +66,7 @@ void draw_mandelbrot(t_data *data)
         while (++x < WIDTH) {
             c = pixel_to_complex(x, y, data);
             iter = mandelbrot(c);
-            color = get_color(iter);
+            color = get_color(iter, data);
             pixel = (unsigned int *)(data->addr + (y * data->line_length) + (x * (data->bits_per_pixel / 8)));
             *pixel = color;
         }
@@ -100,7 +91,7 @@ void draw_julia(t_data *data)
         {
             z = pixel_to_complex(x, y, data);
             iter = julia(z, data->julia_n);
-            color = get_color(iter);
+            color = get_color(iter, data);
             pixel = (unsigned int *)(data->addr + 
                 (y * data->line_length) + (x * (data->bits_per_pixel / 8)));
             *pixel = color;
@@ -110,7 +101,10 @@ void draw_julia(t_data *data)
 }
 
 
-void do_fractol(t_data *data) {
+void do_fractol(t_data *data)
+{
+    data->end_color = 0x2F4858;
+    data->start_color = 0x404F6D;
     if (data->fractol == MANDELBROT)
         draw_mandelbrot(data);
     else if (data->fractol == Julia)

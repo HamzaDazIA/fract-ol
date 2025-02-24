@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 09:13:13 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/24 11:24:34 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/02/24 21:44:37 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,25 +35,24 @@ int multibrot(t_complex c)
 
 void    draw_multibrot(t_data  *data)
 {
-    int y;
     int x;
+    int y;
     t_complex c;
-    int iter;
     unsigned int color;
+    int iter;
     unsigned int *pixel;
 
     y = -1;
-    while(++y < HEIGHT)
+    while (++y < HEIGHT)
     {
         x = -1;
-        while(++x < WIDTH)
+        while (++x < WIDTH)
         {
             c = pixel_to_complex(x, y, data);
             iter = multibrot(c);
-            color = get_color(iter);
-            pixel = (unsigned int *)(data->addr + 
-                (y * data->line_length) + (x * (data->bits_per_pixel / 8)));
-            *pixel = color;           
+            color = get_color(iter, data);
+            pixel = (unsigned int *)(data->addr + (y * data->line_length) + (x * (data->bits_per_pixel / 8)));
+            *pixel = color;
         }
     }
     mlx_put_image_to_window(data->mlx_con, data->mlx_win, data->img, 0, 0);
