@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:15:21 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/24 21:53:16 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/02/25 13:25:00 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,19 @@
 #ifndef HEIGHT
 #define HEIGHT  1080 
 #endif
-
-#define MANDELBROT 1
+# ifndef MANDELBROT
+#  define MANDELBROT 1
+# endif
 #define Julia    2
 #define MULTIBROT	3
 
 #define N_MAX 2.0
 #define N_MIN -2.0
 #define MAX_ITER 100
-# define ESC 53
+// don't tract macros , if I chang the value of ESC in the companition part the window it will never be close it with esc button
+# ifndef ESC
+#  define ESC 53
+# endif
 
 #include <unistd.h>
 #include <mlx.h>

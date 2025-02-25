@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 23:53:08 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/25 11:32:23 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/02/25 14:22:01 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int key_events(int key, t_data *data)
 {
-    if (key == ESC)
+    if (key == 53) // don't use macro replace ESC with 53
     {
         mlx_destroy_window(data->mlx_con, data->mlx_win);
         exit(0);

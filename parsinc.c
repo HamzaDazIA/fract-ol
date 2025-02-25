@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:21:56 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/24 20:38:06 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/02/25 13:14:06 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int parsin(int ac, char **av, t_data  *data)
         data->julia_n.imag = ft_atof(av[3]);
         return (1);
     }
-    else if(ft_strcmp(av[1], "multibrot") == 0 )
+    else if(ft_strcmp(av[1], "multibrot") == 0 ) // this command work : ./a.out multibrot jdklsfjdkls sdfkjdklsfj
     {
         data->fractol = MULTIBROT;
         data->zoom = 1.0;
