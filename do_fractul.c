@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 05:54:44 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/25 11:56:49 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/02/25 12:49:05 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int multibrot(t_complex c)
     z.real = 0;
     z.imag = 0;
     i = 0;
-    while(z.real * z.real + z.imag * z.imag <= 4 && i <= MAX_ITER)
+    while(z.real * z.real + z.imag * z.imag <= 4 && i < MAX_ITER)
     {
         tmp = (z.real * z.real * z.real) - (3 * z.real * z.imag * z.imag) + c.real;
         z.imag = (3 * z.real * z.real * z.imag) - (z.imag * z.imag * z.imag) + c.imag;
