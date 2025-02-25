@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:15:03 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/25 13:51:10 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/02/25 22:24:55 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,10 @@ void	print_usage(void)
     exit(EXIT_FAILURE);
 }
 
-void f()
-{
-    system("leaks a.out");
-}
 
 int main(int argc , char **argv)
 {
     t_data  data;
-    
-    atexit(f);
     if (HEIGHT <= 0 || HEIGHT > 2500 || WIDTH <= 0 || WIDTH > 2500)
         return (1);
     if (parsin(argc, argv, &data) == 0)
