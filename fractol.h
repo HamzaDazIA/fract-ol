@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:15:21 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/26 00:20:59 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/02/26 03:54:23 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,19 +59,19 @@ typedef struct s_complex
 
 typedef struct s_data
 {
-	void		*mlx_con;
-	void		*mlx_win;
-	int			fractol;
-	void		*img;
-	char		*addr;
-	int			bits_per_pixel;
-	int			line_length;
-	int			endian;
-	t_complex	offset;
-	double		zoom;
-	t_complex	julia_n;
-	long		end_color;
-	long		start_color;
+	void			*mlx_con;
+	void			*mlx_win;
+	int				fractol;
+	void			*img;
+	char			*addr;
+	int				bits_per_pixel;
+	int				line_length;
+	int				endian;
+	t_complex		offset;
+	double			zoom;
+	t_complex		julia_n;
+	long			end_color;
+	long			start_color;
 	unsigned int	color;
 }				t_data;
 
