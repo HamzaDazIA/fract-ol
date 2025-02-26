@@ -6,20 +6,29 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:18:53 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/25 22:22:10 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/02/26 01:15:51 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while(s1[i] == s2[i] && s1[i] && s2[i])
-    {
-        i++;
-    }
-    return (s1[i] - s2[i]);
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] && s2[i])
+		i++;
+	return (s1[i] - s2[i]);
+}
+
+t_complex	pixel_to_complex(int x, int y, t_data *data)
+{
+	t_complex	c;
+
+	c.real = (x * (N_MAX - N_MIN) / WIDTH + N_MIN) * data->zoom
+		+ data->offset.real;
+	c.imag = (y * (N_MAX - N_MIN) / HEIGHT + N_MIN) * data->zoom
+		+ data->offset.imag;
+	return (c);
 }
