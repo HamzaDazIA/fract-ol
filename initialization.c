@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 18:30:24 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/26 00:28:04 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/02/26 04:32:39 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,12 @@ int	mlx_conialization(t_data *data)
 	data->mlx_win = mlx_new_window(data->mlx_con, WIDTH, HEIGHT, "fract-ol");
 	if (!data->mlx_win)
 	{
-		free(data->mlx_con);
 		return (1);
 	}
 	data->img = mlx_new_image(data->mlx_con, WIDTH, HEIGHT);
 	if (!data->img)
 	{
 		mlx_destroy_window(data->mlx_con, data->mlx_win);
-		free(data->mlx_con);
 		return (1);
 	}
 	data->addr = mlx_get_data_addr(data->img, &data->bits_per_pixel,
