@@ -22,13 +22,17 @@ int	ft_strcmp(char *s1, char *s2)
 	return (s1[i] - s2[i]);
 }
 
-t_complex	pixel_to_complex(int x, int y, t_data *data)
+t_complex pixel_to_complex(int x, int y, t_data *data)
 {
-	t_complex	c;
+    t_complex c;
 
-	c.real = (x * (N_MAX - N_MIN) / WIDTH + N_MIN) * data->zoom
-		+ data->offset.real;
-	c.imag = (y * (N_MAX - N_MIN) / HEIGHT + N_MIN) * data->zoom
-		+ data->offset.imag;
-	return (c);
+    // Calculate the visible range based on zoom
+    double range_real = (N_MAX - N_MIN) / data->zoom;
+    double range_imag = (N_MAX - N_MIN) / data->zoom;
+
+    // Map pixel (x, y) to the complex plane centered at data->offset
+    c.real = ((double)x / WIDTH) * range_real + (data->offset.real - range_real / 2);
+    c.imag = ((double)y / HEIGHT) * range_imag + (data->offset.imag - range_imag / 2);
+
+    return (c);
 }
