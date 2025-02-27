@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:15:21 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/26 04:34:07 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/02/27 16:28:13 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 # define FRACTOL_H
 
 # ifndef WIDTH
-#  define WIDTH 1080
+#  define WIDTH 600
 # endif
 
 # ifndef HEIGHT
-#  define HEIGHT 1080
+#  define HEIGHT 600
 # endif
 
 # ifndef MANDELBROT
@@ -42,7 +42,7 @@
 # endif
 
 # ifndef MAX_ITER
-#  define MAX_ITER 100
+#  define MAX_ITER 50
 # endif
 
 # include <unistd.h>
