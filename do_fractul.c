@@ -6,21 +6,26 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 05:54:44 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/26 00:23:01 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/02/27 17:24:43 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-unsigned int	get_color(int i, t_data *data)
+unsigned int get_color(int i, t_data *data)
 {
-	int	result;
+    double  t;
+    int     r;
+    int     g;
+    int     b;
 
-	if (i == MAX_ITER)
-		return (0x000000);
-	result = (i * (data->end_color - data->start_color) / MAX_ITER)
-		+ data->start_color;
-	return (result);
+    if (i == MAX_ITER)
+        return (0x000000);
+    t = (double)i / MAX_ITER;
+    r = (1 - t) * ((data->start_color >> 16) & 0xFF) + t * ((data->end_color >> 16) & 0xFF);
+    g = (1 - t) * ((data->start_color >> 8) & 0xFF) + t * ((data->end_color >> 8) & 0xFF);
+    b = (1 - t) * (data->start_color & 0xFF) + t * (data->end_color & 0xFF);
+    return ((r << 16) | (g << 8) | b);
 }
 
 void	draw_mandelbrot(t_data *data)
