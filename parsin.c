@@ -76,31 +76,48 @@ double	ft_atof(char *str)
 	return (rs * sign);
 }
 
-int	parsin(int ac, char **av, t_data *data)
+int	check_float(int ac, char **av)
 {
-	if (ft_strcmp(av[1], "mandelbrot") == 0 && ac == 2)
+	int	i;
+
+	i = 2;
+	while (i < ac)
 	{
-		data->fractol = 1;
-		data->zoom = 1.0;
-		data->offset.real = 0.0;
-		data->offset.imag = 0.0;
-		return (1);
+		if (ft_atof(av[i]) > 100.0 || ft_atof(av[i]) < -100.0)
+		{
+			write(2, "Error: try entering a number between real (-2->2) "
+				"and imag (-2->2).\n", 68);
+			exit(1);
+		}
+		i++;
 	}
-	else if (ft_strcmp(av[1], "julia") == 0 && ac == 4)
-	{
-		data->fractol = 2;
-		data->zoom = 0.9;
-		data->julia_n.real = ft_atof(av[2]);
-		data->julia_n.imag = ft_atof(av[3]);
-		return (1);
-	}
-	else if (ft_strcmp(av[1], "multibrot") == 0 && ac == 2)
-	{
-		data->fractol = 3;
-		data->zoom = 1.0;
-		data->offset.real = 0.0;
-		data->offset.imag = 0.0;
-		return (1);
-	}
-	return (0);
+	return (1);
+}
+
+int parsin(int ac, char **av, t_data *data)
+{
+	if (check_float(ac, av) == 0)
+		return (0);
+    if (ft_strcmp(av[1], "mandelbrot") == 0 && ac == 2)
+    {
+		(1) && (data->fractol = 1, data->zoom = 1.0, data->offset.real = 0.0);
+        data->offset.imag = 0.0;
+        return (1);
+    }
+    else if (ft_strcmp(av[1], "julia") == 0 && ac == 4)
+    {
+		(1) && (data->fractol = 2, data->zoom = 0.9);
+        data->julia_n.real = ft_atof(av[2]);
+        data->julia_n.imag = ft_atof(av[3]);
+        return (1);
+    }
+    else if (ft_strcmp(av[1], "multibrot") == 0 && ac == 2)
+    {
+        data->fractol = 3;
+        data->zoom = 1.0;
+        data->offset.real = 0.0;
+        data->offset.imag = 0.0;
+        return (1);
+    }
+    return (0);
 }
