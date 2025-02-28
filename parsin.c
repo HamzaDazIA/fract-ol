@@ -77,28 +77,8 @@ double	ft_atof(char *str)
 	return (rs * sign);
 }
 
-static int	check_float(int ac, char **av)
-{
-	int	i;
-
-	i = 2;
-	while (i < ac)
-	{
-		if (ft_atof(av[i]) > 100.0 || ft_atof(av[i]) < -100.0)
-		{
-			write(2, "Error: try entering a number between real (-2->2) "
-				"and imag (-2->2).\n", 68);
-			exit(1);
-		}
-		i++;
-	}
-	return (1);
-}
-
 int parsin(int ac, char **av, t_data *data)
 {
-	if (check_float(ac, av) == 0)
-		return (0);
     if (ft_strcmp(av[1], "mandelbrot") == 0 && ac == 2)
     {
 		(1) && (data->fractol = 1, data->zoom = 1.0, data->offset.real = 0.0);

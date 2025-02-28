@@ -24,12 +24,15 @@ int	ft_strcmp(char *s1, char *s2)
 
 t_complex pixel_to_complex(int x, int y, t_data *data)
 {
-	t_complex	c;
-
-	c.real = (x * (N_MAX - N_MIN) / WIDTH + N_MIN) * data->zoom
-		+ data->offset.real;
-	c.imag = (y * (N_MAX - N_MIN) / HEIGHT + N_MIN) * data->zoom
-		+ data->offset.imag;
+    t_complex c;
+    double scale_x;
+    double scale_y; 
+	
+	scale_x = (N_MAX - N_MIN) / WIDTH;
+	scale_y= (N_MAX - N_MIN) / HEIGHT;
+    c.real = (x * scale_x + N_MIN) * data->zoom + data->offset.real;
+    c.imag = ((HEIGHT - 1 - y) * scale_y + N_MIN) * data->zoom 
+        + data->offset.imag;
     return (c);
 }
 
