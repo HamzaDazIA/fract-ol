@@ -17,9 +17,9 @@ unsigned int get_color(int i, t_data *data)
     if (i == MAX_ITER)
         return (0x000000);
 	(void) data;
-    int red = (i * (5 + data->number)) % 250;
-    int green = (i * (10 + data->number)) % 250;
-    int blue = (i * (20 + data->number)) % 250;
+    int red = (i * (5 + data->number)) % 256;
+    int green = (i * (10 + data->number)) % 256;
+    int blue = (i * (20 + data->number)) % 256;
 
     return ((red << 16) | (green << 8) | blue);
 }
