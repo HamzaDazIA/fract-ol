@@ -23,9 +23,11 @@ int	is_float(char *str)
 {
 	int	i_float;
 	int	i;
+	double value;
 
 	i = 0;
 	i_float = 0;
+	value = 0.0;
 	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
@@ -42,6 +44,15 @@ int	is_float(char *str)
 		}
 		else if (!(ft_isdigit(str[i])))
 			return (0);
+		else
+		{
+			value = value * 10 + (str[i] - '0');
+			if (value > INT_MAX)
+			{
+				printf("Error: number too large\n");
+				exit (0);
+			}
+		}
 		i++;
 	}
 	return (1);
@@ -121,3 +132,4 @@ int parsin(int ac, char **av, t_data *data)
     }
     return (0);
 }
+
