@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsinc.c                                          :+:      :+:    :+:   */
+/*   parsin.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:21:56 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/26 01:16:23 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/02/27 20:17:26 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	parsin(int ac, char **av, t_data *data)
 {
 	if (ft_strcmp(av[1], "mandelbrot") == 0 && ac == 2)
 	{
-		data->fractol = MANDELBROT;
+		data->fractol = 1;
 		data->zoom = 1.0;
 		data->offset.real = 0.0;
 		data->offset.imag = 0.0;
@@ -88,7 +88,7 @@ int	parsin(int ac, char **av, t_data *data)
 	}
 	else if (ft_strcmp(av[1], "julia") == 0 && ac == 4)
 	{
-		data->fractol = JULIA;
+		data->fractol = 2;
 		data->zoom = 0.9;
 		data->julia_n.real = ft_atof(av[2]);
 		data->julia_n.imag = ft_atof(av[3]);
@@ -96,7 +96,7 @@ int	parsin(int ac, char **av, t_data *data)
 	}
 	else if (ft_strcmp(av[1], "multibrot") == 0 && ac == 2)
 	{
-		data->fractol = MULTIBROT;
+		data->fractol = 3;
 		data->zoom = 1.0;
 		data->offset.real = 0.0;
 		data->offset.imag = 0.0;

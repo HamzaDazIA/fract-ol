@@ -1,5 +1,5 @@
 SRCS = do_fractol2.c do_fractul.c events.c initialization.c main.c \
-		parsinc.c utils_fonction.c
+		parsin.c utils_fonction.c
 
 OBJS = ${SRCS:.c=.o}
 NAME = fractol

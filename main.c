@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:15:03 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/27 17:19:52 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/02/27 20:26:22 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ int	main(int argc, char **argv)
 		write(2, "Error initializing MiniLibX\n", 28);
 		return (1);
 	}
-	data.end_color = 0xFFCDB2;
-	data.start_color = 0xB5828C;
+	data.number = 0;
 	do_fractol(&data);
 	mlx_key_hook(data.mlx_win, key_events, &data);
 	mlx_hook(data.mlx_win, 17, 0, close_window, &data);

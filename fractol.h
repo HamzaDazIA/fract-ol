@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:15:21 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/27 16:28:13 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/02/27 20:26:46 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,6 @@
 #  define HEIGHT 600
 # endif
 
-# ifndef MANDELBROT
-#  define MANDELBROT 1
-# endif
-
-# ifndef JULIA
-#  define JULIA 2
-# endif
-
-# ifndef MULTIBROT
-#  define MULTIBROT 3
-# endif
-
 # ifndef N_MAX
 #  define N_MAX 2.0
 # endif
@@ -42,7 +30,7 @@
 # endif
 
 # ifndef MAX_ITER
-#  define MAX_ITER 50
+#  define MAX_ITER 100
 # endif
 
 # include <unistd.h>
@@ -70,10 +58,10 @@ typedef struct s_data
 	t_complex		offset;
 	double			zoom;
 	t_complex		julia_n;
-	long			end_color;
-	long			start_color;
+	int			number;
 	unsigned int	color;
 }				t_data;
+
 
 void		print_usage(void);
 int			ft_strcmp(char *s1, char *s2);

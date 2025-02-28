@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 23:53:08 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/26 04:33:52 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/02/27 20:27:13 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,7 @@ int	key_events(int key, t_data *data)
 		exit(0);
 	}
 	else if (key == 49)
-	{
-		data->start_color = data->start_color * 3;
-		data->end_color = data->end_color * 5;
-	}
+		data->number += 3;
 	else if (key == 125)
 		data->offset.imag += 0.1 * data->zoom;
 	else if (key == 126)
