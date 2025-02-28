@@ -75,5 +75,6 @@ int			close_window(t_data *data);
 int			mandelbrot(t_complex c);
 int			julia(t_complex z0, t_complex c_julia);
 int			multibrot(t_complex c);
+int check_overflow(long long value);
 
 #endif

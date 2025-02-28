@@ -32,3 +32,13 @@ t_complex pixel_to_complex(int x, int y, t_data *data)
 		+ data->offset.imag;
     return (c);
 }
+
+int check_overflow(long long value)
+{
+	if (value > INT_MAX || value < INT_MIN)
+	{
+		write(2, "Error: number too large\n", 24);
+		exit(1);
+	}
+	return (1);
+}

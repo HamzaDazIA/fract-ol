@@ -24,17 +24,15 @@ int	is_float(char *str)
 	int	i_float;
 	int	i;
 	double value;
-
-	i = 0;
-	i_float = 0;
-	value = 0.0;
+	
+	(1) && (i_float = 0, i = 0, value = 0.0);
 	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 		i++;
 	if (!ft_isdigit(str[i]) && str[i] != '.')
 		return (0);
-	while (str[i])
+	while (str[++i])
 	{
 		if (str[i] == '.')
 		{
@@ -45,15 +43,7 @@ int	is_float(char *str)
 		else if (!(ft_isdigit(str[i])))
 			return (0);
 		else
-		{
-			value = value * 10 + (str[i] - '0');
-			if (value > INT_MAX)
-			{
-				printf("Error: number too large\n");
-				exit (0);
-			}
-		}
-		i++;
+			(1) && (value = value * 10 + (str[i] - '0'), check_overflow(value));
 	}
 	return (1);
 }
@@ -66,7 +56,7 @@ double	ft_atof(char *str)
 	int		div;
 	int		sign;
 
-	if (!is_float(str))
+	if (is_float(str) == 0)
 		print_usage();
 	(1) && (rs = 0.0, rs2 = 0.0, sign = 1, div = 1, i = 0);
 	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
@@ -87,7 +77,7 @@ double	ft_atof(char *str)
 	return (rs * sign);
 }
 
-int	check_float(int ac, char **av)
+static int	check_float(int ac, char **av)
 {
 	int	i;
 
@@ -132,4 +122,3 @@ int parsin(int ac, char **av, t_data *data)
     }
     return (0);
 }
-
