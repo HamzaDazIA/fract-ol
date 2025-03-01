@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialization.c                                   :+:      :+:    :+:   */
+/*   initialization_bonus..c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 18:30:24 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/26 04:32:39 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/03/01 03:44:12 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonus.h"
 
 int	mlx_conialization(t_data *data)
 {

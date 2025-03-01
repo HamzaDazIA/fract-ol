@@ -6,11 +6,11 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:15:03 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/27 20:26:22 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/03/01 03:44:24 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonus.h"
 
 void	print_usage(void)
 {

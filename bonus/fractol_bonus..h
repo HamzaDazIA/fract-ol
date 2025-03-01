@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   fractol_bonus..h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:15:21 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/27 20:26:46 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/03/01 03:44:54 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#ifndef FRACTOL_H_BONUS
+# define FRACTOL_H_BONUS
 
 # ifndef WIDTH
 #  define WIDTH 600
