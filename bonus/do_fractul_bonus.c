@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   do_fractul_bonus..c                                :+:      :+:    :+:   */
+/*   do_fractul_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 05:54:44 by hdazia            #+#    #+#             */
-/*   Updated: 2025/03/01 04:43:05 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/03/01 05:59:33 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol_bonus.h"
 
-unsigned int get_color(int i, t_data *data)
+unsigned int	get_color(int i, t_data *data)
 {
-    if (i == MAX_ITER)
-        return (0x000000);
-	(void) data;
-    int red = (i * (5 + data->number)) % 256;
-    int green = (i * (10 + data->number)) % 256;
-    int blue = (i * (20 + data->number)) % 256;
+	unsigned char	red;
+	unsigned char	green;
+	unsigned char	blue;
 
-    return ((red << 16) | (green << 8) | blue);
+	if (i == MAX_ITER)
+		return (0x000000);
+	red = (i * (5 + data->number)) % 256;
+	green = (i * (10 + data->number)) % 256;
+	blue = (i * (20 + data->number)) % 256;
+	return ((red << 16) | (green << 8) | blue);
 }
 
 void	draw_mandelbrot(t_data *data)

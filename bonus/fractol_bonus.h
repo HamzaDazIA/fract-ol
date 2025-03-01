@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol_bonus..h                                   :+:      :+:    :+:   */
+/*   fractol_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:15:21 by hdazia            #+#    #+#             */
-/*   Updated: 2025/03/01 03:44:54 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/03/01 06:08:19 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H_BONUS
+# ifndef FRACTOL_H_BONUS
 # define FRACTOL_H_BONUS
 
 # ifndef WIDTH
@@ -35,9 +35,7 @@
 
 # include <unistd.h>
 # include <mlx.h>
-# include <stdio.h>
 # include <stdlib.h>
-# include <math.h>
 
 typedef struct s_complex
 {
@@ -58,15 +56,14 @@ typedef struct s_data
 	t_complex		offset;
 	double			zoom;
 	t_complex		julia_n;
-	int			number;
+	int				number;
 	unsigned int	color;
 }				t_data;
-
 
 void		print_usage(void);
 int			ft_strcmp(char *s1, char *s2);
 int			parsin(int ac, char **av, t_data *data);
-int			mlx_conialization(t_data *data);
+int			mlx_initialization(t_data *data);
 void		do_fractol(t_data *data);
 int			key_events(int key, t_data *data);
 int			mouse_zoom(int button, int x, int y, t_data *data);
@@ -75,6 +72,5 @@ int			close_window(t_data *data);
 int			mandelbrot(t_complex c);
 int			julia(t_complex z0, t_complex c_julia);
 int			multibrot(t_complex c);
-int check_overflow(long long value);
-
+int 		check_overflow(long long value);
 #endif
