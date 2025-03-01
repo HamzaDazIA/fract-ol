@@ -19,7 +19,6 @@ void	print_usage(void)
 	write(1, "Available fractals:\n\n", 22);
 	write(1, "🌀 mandelbrot\n", 17);
 	write(1, "🌊 julia <real> <imag>\n", 26);
-	write(1, "🔥 multibrot\n\n", 17);
 	exit(1);
 }
 
