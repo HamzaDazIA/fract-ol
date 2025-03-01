@@ -1,0 +1,2 @@
+mandatoria/do_fractol2.c mandatoria/do_fractul.c mandatoria/events.c /
+mandatoria/initialization.c mandatoria/main.c mandatoria/parsin.c mandatoria/utils_fonction.c
