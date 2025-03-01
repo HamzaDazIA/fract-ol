@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:15:21 by hdazia            #+#    #+#             */
-/*   Updated: 2025/03/01 00:04:56 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/03/01 05:42:54 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@
 # include <unistd.h>
 # include <mlx.h>
 # include <stdlib.h>
-#include <limits.h>
+# include <limits.h>
 
 typedef struct s_complex
 {
-	double		real;
-	double		imag;
-}				t_complex;
+	double	real;
+	double	imag;
+}	t_complex;
 
 typedef struct s_data
 {
@@ -57,22 +57,22 @@ typedef struct s_data
 	t_complex		offset;
 	double			zoom;
 	t_complex		julia_n;
-	int			number;
+	int				number;
 	unsigned int	color;
-}				t_data;
-
+}	t_data;
 
 void		print_usage(void);
 int			ft_strcmp(char *s1, char *s2);
 int			parsin(int ac, char **av, t_data *data);
-int			mlx_conialization(t_data *data);
+int			mlx_initialization(t_data *data);
 void		do_fractol(t_data *data);
 int			key_events(int key, t_data *data);
 t_complex	pixel_to_complex(int x, int y, t_data *data);
-int mouse_zoom(int button, int x, int y, t_data *data);
+int			mouse_zoom(int button, int x, int y,
+				t_data *data);
 int			close_window(t_data *data);
 int			mandelbrot(t_complex c);
 int			julia(t_complex z0, t_complex c_julia);
-int check_overflow(long long value);
+int			chck_ovrflw(long long value);
 
-#endif
+#endif 

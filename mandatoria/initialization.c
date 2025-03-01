@@ -6,13 +6,13 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 18:30:24 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/26 04:32:39 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/03/01 05:18:35 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	mlx_conialization(t_data *data)
+int	mlx_initialization(t_data *data)
 {
 	data->mlx_con = mlx_init();
 	if (!data->mlx_con)

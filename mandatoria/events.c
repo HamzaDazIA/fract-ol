@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 23:53:08 by hdazia            #+#    #+#             */
-/*   Updated: 2025/03/01 00:04:46 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/03/01 05:11:14 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,14 @@ int	key_events(int key, t_data *data)
 	return (0);
 }
 
-int mouse_zoom(int button, int x, int y, t_data *data)
+int	mouse_zoom(int button, int x, int y, t_data *data)
 {
 	(void)x;
 	(void)y;
-	
-    if (button == 4)
-        data->zoom *= 1.1;
-    else if (button == 5)
-        data->zoom /= 1.1;
-    do_fractol(data);
-    return (0);
+	if (button == 4)
+		data->zoom *= 1.1;
+	else if (button == 5)
+		data->zoom /= 1.1;
+	do_fractol(data);
+	return (0);
 }

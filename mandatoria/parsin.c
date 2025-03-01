@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:21:56 by hdazia            #+#    #+#             */
-/*   Updated: 2025/02/28 23:47:02 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/03/01 05:50:27 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ int	ft_isdigit(int c)
 
 int	is_float(char *str)
 {
-	int	i_float;
-	int	i;
-	double value;
-	
+	int		i_float;
+	int		i;
+	double	v;
+
 	(1) && (i_float = 0, i = 0, value = 0.0);
 	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
@@ -43,7 +43,7 @@ int	is_float(char *str)
 		else if (!(ft_isdigit(str[i])))
 			return (0);
 		else
-			(1) && (value = value * 10 + (str[i] - '0'), check_overflow(value));
+			(1) && (v = v * 10 + (str[i] - '0'), chck_ovrflw(v));
 	}
 	return (1);
 }
@@ -77,45 +77,25 @@ double	ft_atof(char *str)
 	return (rs * sign);
 }
 
-static int	check_float(int ac, char **av)
+int	parsin(int ac, char **av, t_data *data)
 {
-	int	i;
-
-	i = 2;
-	while (i < ac)
+	if (ft_strcmp(av[1], "mandelbrot") == 0 && ac == 2)
 	{
-		if (ft_atof(av[i]) > 100.0 || ft_atof(av[i]) < -100.0)
-		{
-			write(2, "Error: try entering a number between real (-2->2) "
-				"and imag (-2->2).\n", 68);
-			exit(1);
-		}
-		i++;
-	}
-	return (1);
-}
-
-int parsin(int ac, char **av, t_data *data)
-{
-	if (check_float(ac, av) == 0)
-		return (0);
-    if (ft_strcmp(av[1], "mandelbrot") == 0 && ac == 2)
-    {
 		data->fractol = 1;
 		data->zoom = 1.0;
 		data->offset.real = 0.0;
 		data->offset.imag = 0.0;
-        return (1);
-    }
-    else if (ft_strcmp(av[1], "julia") == 0 && ac == 4)
-    {
-		(1) && (data->fractol = 2, data->zoom = 0.9);
-        data->julia_n.real = ft_atof(av[2]);
-        data->julia_n.imag = ft_atof(av[3]);
+		return (1);
+	}
+	else if (ft_strcmp(av[1], "julia") == 0 && ac == 4)
+	{
+		data->fractol = 2;
+		data->zoom = 0.9;
+		data->julia_n.real = ft_atof(av[2]);
+		data->julia_n.imag = ft_atof(av[3]);
 		data->offset.real = 0.0;
 		data->offset.imag = 0.0;
-        return (1);
-    }
-    return (0);
+		return (1);
+	}
+	return (0);
 }
-
