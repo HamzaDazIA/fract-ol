@@ -52,17 +52,16 @@ int	mouse_zoom_bonus(int button, int x, int y, t_data *data)
 	mouse_y = ((HEIGHT - y) * (N_MAX - N_MIN) / HEIGHT + N_MIN) * data->zoom
 		+ data->offset.imag;
 	if (button == 4)
-		zoom_scale = 0.9; 
+		zoom_scale = 0.9;
 	else if (button == 5)
-		zoom_scale = 1.1; 
+		zoom_scale = 1.1;
 	else
 		return (0);
 	data->zoom *= zoom_scale;
-	data->offset.real = mouse_x - (x * (N_MAX - N_MIN) / WIDTH + N_MIN)
-		* data->zoom;
-	data->offset.imag = mouse_y - ((HEIGHT - y) * (N_MAX - N_MIN) / HEIGHT + N_MIN)
-		* data->zoom;
+	data->offset.real = mouse_x
+		- (x * (N_MAX - N_MIN) / WIDTH + N_MIN) * data->zoom;
+	data->offset.imag = mouse_y
+		- ((HEIGHT - y) * (N_MAX - N_MIN) / HEIGHT + N_MIN) * data->zoom;
 	do_fractol_bonus(data);
 	return (0);
 }
-

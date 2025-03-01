@@ -6,12 +6,12 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:15:21 by hdazia            #+#    #+#             */
-/*   Updated: 2025/03/01 06:51:43 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/03/01 21:49:18 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef FRACTOL_H_BONUS
-# define FRACTOL_H_BONUS
+#ifndef FRACTOL_BONUS_H
+# define FRACTOL_BONUS_H
 
 # ifndef WIDTH
 #  define WIDTH 600
@@ -36,13 +36,13 @@
 # include <unistd.h>
 # include <mlx.h>
 # include <stdlib.h>
-#include <limits.h>
+# include <limits.h>
 
 typedef struct s_complex
 {
-	double		real;
-	double		imag;
-}				t_complex;
+	double	real;
+	double	imag;
+}	t_complex;
 
 typedef struct s_data
 {
@@ -59,7 +59,7 @@ typedef struct s_data
 	t_complex		julia_n;
 	int				number;
 	unsigned int	color;
-}				t_data;
+}	t_data;
 
 void		print_usage_bonus(void);
 int			ft_strcmp_bonus(char *s1, char *s2);

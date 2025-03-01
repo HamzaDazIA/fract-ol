@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:18:53 by hdazia            #+#    #+#             */
-/*   Updated: 2025/03/01 05:56:03 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/03/01 21:52:56 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
-	
+
 	i = 0;
 	while (s1[i] == s2[i] && s1[i] && s2[i])
 		i++;
@@ -25,13 +25,10 @@ int	ft_strcmp(char *s1, char *s2)
 t_complex	pixel_to_complex(int x, int y, t_data *data)
 {
 	t_complex	c;
-	double		scale_x;
-	double		scale_y;
 
-	scale_x = (N_MAX - N_MIN) / WIDTH;
-	scale_y = (N_MAX - N_MIN) / HEIGHT;
-	c.real = (x * scale_x + N_MIN) * data->zoom + data->offset.real;
-	c.imag = ((HEIGHT - 1 - y) * scale_y + N_MIN) * data->zoom
+	c.real = ((x * (N_MAX - N_MIN)) / WIDTH + N_MIN) * data->zoom
+		+ data->offset.real;
+	c.imag = (((HEIGHT - y) * (N_MAX - N_MIN)) / HEIGHT + N_MIN) * data->zoom
 		+ data->offset.imag;
 	return (c);
 }
