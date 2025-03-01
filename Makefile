@@ -2,14 +2,8 @@ SRCS = mandatoria/do_fractol2.c mandatoria/do_fractol.c mandatoria/events.c \
 	mandatoria/initialization.c mandatoria/main.c mandatoria/parsin.c \
 	mandatoria/utils_fonction.c
 
-SRCSB = bonus/check_input_bonus.c bonus/do_relus.c bonus/ft_atoi2_bonus.c \
-	bonus/ft_atoi_bonus.c bonus/ft_isdigit_bonus.c bonus/ft_lis_bonus.c \
-	bonus/ft_putendl_fd_bonus.c bonus/ft_split.c bonus/ft_strjoin_bonus.c \
-	bonus/get_next_line.c bonus/get_next_line_utils.c bonus/main_bonus.c \
-	bonus/utili_fonction_bonus.c rules_bonus/ft_push_bonus.c \
-	rules_bonus/ft_rev_rotate_bonus.c rules_bonus/ft_rotate_bonus.c \
-	rules_bonus/ft_rules_bonus.c rules_bonus/ft_swap_bonus.c \
-	rules_bonus/rules_bonus.c rules_bonus/rules_rev_bonus.c
+SRCSB = bonus/do_fractol2.c bonus/do_fractul.c bonus/events.c \
+	bonus/initialization.c bonus/main.c bonus/parsin.c bonus/utils_fonction.c
 
 OBJS = ${SRCS:.c=.o}
 OBJSB = ${SRCSB:.c=.o}
@@ -46,4 +40,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: clean 
