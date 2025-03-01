@@ -12,7 +12,6 @@
 
 #include "fractol.h"
 
-
 unsigned int	get_color(int i)
 {
 	unsigned char	red;

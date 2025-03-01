@@ -27,7 +27,6 @@ int	key_events(int key, t_data *data)
 		mlx_destroy_window(data->mlx_con, data->mlx_win);
 		exit(0);
 	}
-	
 	return (0);
 }
 
@@ -40,7 +39,6 @@ int mouse_zoom(int button, int x, int y, t_data *data)
         data->zoom *= 1.1;
     else if (button == 5)
         data->zoom /= 1.1;
-
     do_fractol(data);
     return (0);
 }
