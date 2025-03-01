@@ -30,7 +30,7 @@ ${NAME_BONUS}: ${OBJSB}
 	${CC} ${OBJSB} -o ${NAME_BONUS} ${MLX_FLAGS}
 
 ${OBJS}: mandatoria/fractol.h
-${OBJSB}: bonus/fractol.h
+${OBJSB}: bonus/fractol_bonus.h
 
 clean:
 	${RM} ${OBJS} ${OBJSB}

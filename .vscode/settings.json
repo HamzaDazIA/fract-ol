@@ -6,6 +6,8 @@
         "functional": "cpp",
         "limits": "cpp",
         "optional": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "fractol.h": "c",
+        "fractol_bonus..h": "c"
     }
 }
