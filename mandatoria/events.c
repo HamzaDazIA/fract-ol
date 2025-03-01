@@ -33,9 +33,9 @@ int	key_events(int key, t_data *data)
 
 int mouse_zoom(int button, int x, int y, t_data *data)
 {
-    if (!data)
-        return (0); // Prevent segfault if data is NULL
-
+	(void)x;
+	(void)y;
+	
     if (button == 4)
         data->zoom *= 1.1;
     else if (button == 5)
