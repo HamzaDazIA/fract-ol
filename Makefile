@@ -2,8 +2,8 @@ SRCS = mandatoria/do_fractol2.c mandatoria/do_fractol.c mandatoria/events.c \
 	mandatoria/initialization.c mandatoria/main.c mandatoria/parsin.c \
 	mandatoria/utils_fonction.c
 
-SRCSB = bonus/do_fractol2.c bonus/do_fractul.c bonus/events.c \
-	bonus/initialization.c bonus/main.c bonus/parsin.c bonus/utils_fonction.c
+SRCSB = bonus/do_fractol2_bonus.c bonus/do_fractol_bonus.c bonus/events_bonus.c \
+	bonus/initialization_bonus.c bonus/main.c bonus/parsin_bonus.c bonus/utils_fonction_bonus.c 
 
 OBJS = ${SRCS:.c=.o}
 OBJSB = ${SRCSB:.c=.o}

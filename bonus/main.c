@@ -6,14 +6,13 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:15:03 by hdazia            #+#    #+#             */
-/*   Updated: 2025/03/01 06:08:07 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/03/01 06:43:41 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol_bonus.h"
-#include "mlx.h"
 
-void	print_usage(void)
+void	print_usage_bonus(void)
 {
 	write(1, "\nUsage:\n", 9);
 	write(1, "fractol <fractal_type>\n\n", 25);
@@ -32,20 +31,21 @@ int	main(int argc, char **argv)
 		return (1);
 	if (N_MAX > 2 || N_MAX < -2 || N_MIN < -2 || N_MIN > 2)
 		return (1);
-	if (parsin(argc, argv, &data) == 0)
+	if (parsin_bonus(argc, argv, &data) == 0)
 	{
-		print_usage();
+		print_usage_bonus();
 		return (1);
-	else if (mlx_initialization(&data) == 1)
+	}
+	else if (mlx_initialization_bonus(&data) == 1)
 	{
 		write(2, "Error initializing MiniLibX\n", 28);
 		return (1);
 	}
 	data.number = 0;
-	do_fractol(&data);
-	mlx_key_hook(data.mlx_win, key_events, &data);
-	mlx_hook(data.mlx_win, 17, 0, close_window, &data);
-	mlx_mouse_hook(data.mlx_win, mouse_zoom, &data);
+	do_fractol_bonus(&data);
+	mlx_key_hook(data.mlx_win, key_events_bonus, &data);
+	mlx_hook(data.mlx_win, 17, 0, close_window_bonus, &data);
+	mlx_mouse_hook(data.mlx_win, mouse_zoom_bonus, &data);
 	mlx_loop(data.mlx_con);
 	return (0);
 }

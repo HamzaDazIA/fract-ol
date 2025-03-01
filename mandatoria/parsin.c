@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:21:56 by hdazia            #+#    #+#             */
-/*   Updated: 2025/03/01 05:50:27 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/03/01 06:26:48 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	is_float(char *str)
 	int		i;
 	double	v;
 
-	(1) && (i_float = 0, i = 0, value = 0.0);
+	(1) && (i_float = 0, i = 0, v = 0.0);
 	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	if (str[i] == '-' || str[i] == '+')

@@ -12,7 +12,7 @@
 
 #include "fractol_bonus.h"
 
-unsigned int	get_color(int i, t_data *data)
+unsigned int	get_color_bonus(int i, t_data *data)
 {
 	unsigned char	red;
 	unsigned char	green;
@@ -26,7 +26,7 @@ unsigned int	get_color(int i, t_data *data)
 	return ((red << 16) | (green << 8) | blue);
 }
 
-void	draw_mandelbrot(t_data *data)
+void	draw_mandelbrot_bonus(t_data *data)
 {
 	int				x;
 	int				y;
@@ -40,9 +40,9 @@ void	draw_mandelbrot(t_data *data)
 		x = -1;
 		while (++x < WIDTH)
 		{
-			c = pixel_to_complex(x, y, data);
-			iter = mandelbrot(c);
-			data->color = get_color(iter, data);
+			c = pixel_to_complex_bonus(x, y, data);
+			iter = mandelbrot_bonus(c);
+			data->color = get_color_bonus(iter, data);
 			pixel = (unsigned int *)(data->addr
 					+ (y * data->line_length)
 					+ (x * (data->bits_per_pixel / 8)));
@@ -52,7 +52,7 @@ void	draw_mandelbrot(t_data *data)
 	mlx_put_image_to_window(data->mlx_con, data->mlx_win, data->img, 0, 0);
 }
 
-void	draw_multibrot(t_data *data)
+void	draw_multibrot_bonus(t_data *data)
 {
 	int				x;
 	int				y;
@@ -66,9 +66,9 @@ void	draw_multibrot(t_data *data)
 		x = -1;
 		while (++x < WIDTH)
 		{
-			c = pixel_to_complex(x, y, data);
-			iter = multibrot(c);
-			data->color = get_color(iter, data);
+			c = pixel_to_complex_bonus(x, y, data);
+			iter = multibrot_bonus(c);
+			data->color = get_color_bonus(iter, data);
 			pixel = (unsigned int *)(data->addr
 					+ (y * data->line_length)
 					+ (x * (data->bits_per_pixel / 8)));
@@ -78,7 +78,7 @@ void	draw_multibrot(t_data *data)
 	mlx_put_image_to_window(data->mlx_con, data->mlx_win, data->img, 0, 0);
 }
 
-void	draw_julia(t_data *data)
+void	draw_julia_bonus(t_data *data)
 {
 	int				x;
 	int				y;
@@ -92,9 +92,9 @@ void	draw_julia(t_data *data)
 		x = -1;
 		while (++x < WIDTH)
 		{
-			z = pixel_to_complex(x, y, data);
-			iter = julia(z, data->julia_n);
-			data->color = get_color(iter, data);
+			z = pixel_to_complex_bonus(x, y, data);
+			iter = julia_bonus(z, data->julia_n);
+			data->color = get_color_bonus(iter, data);
 			pixel = (unsigned int *)(data->addr
 					+ (y * data->line_length)
 					+ (x * (data->bits_per_pixel / 8)));
@@ -104,12 +104,12 @@ void	draw_julia(t_data *data)
 	mlx_put_image_to_window(data->mlx_con, data->mlx_win, data->img, 0, 0);
 }
 
-void	do_fractol(t_data *data)
+void	do_fractol_bonus(t_data *data)
 {
 	if (data->fractol == 1)
-		draw_mandelbrot(data);
+		draw_mandelbrot_bonus(data);
 	else if (data->fractol == 2)
-		draw_julia(data);
+		draw_julia_bonus(data);
 	else if (data->fractol == 3)
-		draw_multibrot(data);
+		draw_multibrot_bonus(data);
 }

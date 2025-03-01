@@ -12,7 +12,7 @@
 
 #include "fractol_bonus.h"
 
-int	mandelbrot(t_complex c)
+int	mandelbrot_bonus(t_complex c)
 {
 	t_complex	z;
 	int			i;
@@ -31,7 +31,7 @@ int	mandelbrot(t_complex c)
 	return (i);
 }
 
-int	julia(t_complex z0, t_complex c_julia)
+int	julia_bonus(t_complex z0, t_complex c_julia)
 {
 	int			iter;
 	double		tmp;
@@ -47,7 +47,7 @@ int	julia(t_complex z0, t_complex c_julia)
 	return (iter);
 }
 
-int	multibrot(t_complex c)
+int	multibrot_bonus(t_complex c)
 {
 	int			i;
 	double		tmp;
