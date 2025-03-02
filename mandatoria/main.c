@@ -30,7 +30,7 @@ int	main(int argc, char **argv)
 		return (1);
 	if (N_MAX > 2 || N_MAX < -2 || N_MIN < -2 || N_MIN > 2)
 		return (1);
-	if (parsin(argc, argv, &data) == 0)
+	if (parsin(argc, argv, &data) == 0 || ac == 1)
 	{
 		print_usage();
 		return (1);
