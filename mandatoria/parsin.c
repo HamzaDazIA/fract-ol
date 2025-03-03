@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:21:56 by hdazia            #+#    #+#             */
-/*   Updated: 2025/03/01 06:26:48 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/03/03 22:19:40 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	is_float(char *str)
 		i++;
 	if (!ft_isdigit(str[i]) && str[i] != '.')
 		return (0);
-	while (str[++i])
+	while (str[++i] && str[i] != ' ')
 	{
 		if (str[i] == '.')
 		{
@@ -43,8 +43,12 @@ int	is_float(char *str)
 		else if (!(ft_isdigit(str[i])))
 			return (0);
 		else
-			(1) && (v = v * 10 + (str[i] - '0'), chck_ovrflw(v));
+			(1) && (v = v * 10 + (str[i] - '0'), check_overflow(v));
 	}
+	while (str[i] == ' ' )
+		i++;
+	if (str[i] != '\0')
+		return (0);
 	return (1);
 }
 
