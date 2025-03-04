@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:21:56 by hdazia            #+#    #+#             */
-/*   Updated: 2025/03/03 22:19:40 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/03/03 23:51:31 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,8 @@ int	ft_isdigit(int c)
 	return (0);
 }
 
-int	is_float(char *str)
+int	is_float(char *str, int i, double v, int i_float)
 {
-	int		i_float;
-	int		i;
-	double	v;
-
-	(1) && (i_float = 0, i = 0, v = 0.0);
 	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
@@ -43,7 +38,7 @@ int	is_float(char *str)
 		else if (!(ft_isdigit(str[i])))
 			return (0);
 		else
-			(1) && (v = v * 10 + (str[i] - '0'), check_overflow(v));
+			(1) && (v = v * 10 + (str[i] - '0'), chck_ovrflw(v));
 	}
 	while (str[i] == ' ' )
 		i++;
@@ -60,7 +55,7 @@ double	ft_atof(char *str)
 	int		div;
 	int		sign;
 
-	if (is_float(str) == 0)
+	if (is_float(str, 0, 0.0, 0) == 0)
 		print_usage();
 	(1) && (rs = 0.0, rs2 = 0.0, sign = 1, div = 1, i = 0);
 	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
