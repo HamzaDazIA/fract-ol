@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:18:53 by hdazia            #+#    #+#             */
-/*   Updated: 2025/03/01 21:52:56 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/03/04 00:26:11 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ int	chck_ovrflw(long long value)
 {
 	if (value > INT_MAX || value < INT_MIN)
 	{
-		write(2, "Error: number too large\n", 24);
+		write(2, "Error: enter a number float or simple ", 39);
+		write(2, "int such as '1.3655' or '1' ", 29);
+		write(2, "for the program to work successfully\n", 38);
 		exit(1);
 	}
 	return (1);
