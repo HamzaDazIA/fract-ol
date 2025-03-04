@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:21:56 by hdazia            #+#    #+#             */
-/*   Updated: 2025/03/01 22:57:19 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/03/03 23:51:13 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,15 @@ int	ft_isdigit_bonus(int c)
 	return (0);
 }
 
-int	is_float_bonus(char *str)
+int	is_float_bonus(char *str, int i, double v, int i_float)
 {
-	int		i_float;
-	int		i;
-	double	v;
-
-	(1) && (i_float = 0, i = 0, v = 0.0);
 	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 		i++;
 	if (!ft_isdigit_bonus(str[i]) && str[i] != '.')
 		return (0);
-	while (str[++i])
+	while (str[++i] && str[i] != ' ')
 	{
 		if (str[i] == '.')
 		{
@@ -45,6 +40,10 @@ int	is_float_bonus(char *str)
 		else
 			(1) && (v = v * 10 + (str[i] - '0'), chck_ovrflw_bonus(v));
 	}
+	while (str[i] == ' ' )
+		i++;
+	if (str[i] != '\0')
+		return (0);
 	return (1);
 }
 
@@ -56,7 +55,7 @@ double	ft_atof_bonus(char *str)
 	int		div;
 	int		sign;
 
-	if (is_float_bonus(str) == 0)
+	if (is_float_bonus(str, 0, 0.0, 0) == 0)
 		print_usage_bonus();
 	(1) && (rs = 0.0, rs2 = 0.0, sign = 1, div = 1, i = 0);
 	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
